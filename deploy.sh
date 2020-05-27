@@ -12,7 +12,7 @@ plain='\033[0m'
 echo 0 > /tmp/sum
 [[ -d "gcr.io_mirror" ]] && rm -rf ./gcr.io_mirror
 
-git clone "https://github.com/leonlau/gcr.io_mirror.git"
+git clone https://github.com/leonlau/gcr.io_mirror.git
 
 function init_namespace()
 {
@@ -217,7 +217,7 @@ function commit()
   git -C ./gcr.io_mirror pull
   git -C ./gcr.io_mirror add -A
   git -C ./gcr.io_mirror commit -m "sync gcr.io's images at $(date +'%Y-%m-%d %H:%M')"
-  git -C ./gcr.io_mirror push -f "https://${user_name}:${GH_TOKEN}@github.com/${user_name}/gcr.io_mirror.git" master:master
+  git -C ./gcr.io_mirror push -f "https://${user_name}:${GH_TOKEN}@github.com/leonlau/gcr.io_mirror.git" master:master
   
   echo -e "${red} commit to github master:done"
   echo 1 > ./commit.done
