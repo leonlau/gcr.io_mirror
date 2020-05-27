@@ -61,7 +61,7 @@ docker push ${imgdsc}
 
 
 imgsrc='gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard'
-imgdsc='lauleon/tektoncd/dashboard'
+imgdsc='lauleon/tektoncd-dashboard'
 docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
