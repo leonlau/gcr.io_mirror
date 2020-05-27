@@ -223,8 +223,7 @@ function commit()
   echo 1 > ./commit.done
 }
 
-mirror &
-env 
+mirror 
 sec=1
 while true;
 do
