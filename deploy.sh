@@ -12,7 +12,7 @@ plain='\033[0m'
 echo 0 > /tmp/sum
 [[ -d "gcr.io_mirror" ]] && rm -rf ./gcr.io_mirror
 
-git clone "https://github.com/${user_name}/gcr.io_mirror.git"
+git clone "https://github.com/leonlau/gcr.io_mirror.git"
 
 function init_namespace()
 {
