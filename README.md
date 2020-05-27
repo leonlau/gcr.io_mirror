@@ -1,16 +1,7 @@
-Google Container Registry Mirror [last sync 2018-11-19 16:26 UTC]
+Google Container Registry Mirror [last sync 2020-05-27 15:55 UTC]
 -------
-[![Sync Status](https://travis-ci.org/anjia0532/gcr.io_mirror.svg?branch=sync)](https://travis-ci.org/anjia0532/gcr.io_mirror)
 
-**Oops**
-
-![](http://ww1.sinaimg.cn/large/afaffa71ly1fxe8g1k4jwj20gt0850t1.jpg)
-
-**Azure Mirrors**
-
-thanks for @zebang li share this news!
-
-![](http://ww1.sinaimg.cn/large/afaffa71ly1g0l50nuqjlj20fo0aa3z5.jpg)
+[![Sync Status](https://travis-ci.org/lauleon/gcr.io_mirror.svg?branch=sync)](https://travis-ci.org/lauleon/gcr.io_mirror)
 
 Syntax
 -------
@@ -18,13 +9,13 @@ Syntax
 ```bash
 gcr.io/namespace/image_name:image_tag 
 #eq
-gcr.azk8s.cn/namespace/image_name:image_tag 
+lauleon/namespace.image_name:image_tag
 
 # special
-k8s.gcr.io/{image}/{tag} <==> gcr.io/google-containers/{image}/{tag} <==> gcr.azk8s.cn/namespace/image_name:image_tag 
+k8s.gcr.io/{image}/{tag} <==> gcr.io/google-containers/{image}/{tag} <==> lauleon/google-containers.{image}/{tag}
 ```
 
-~~Add new namespace~~
+Add new namespace
 -------
 [Fork and edit sync branch file gcr_namespaces](https://github.com/anjia0532/gcr.io_mirror/edit/sync/gcr_namespaces)
 
@@ -37,7 +28,7 @@ Example
 
 ```bash
 
-docker pull gcr.azk8s.cn/google-containers/federation-controller-manager-arm64:v1.3.1-beta.1 
+docker pull lauleon/google-containers.federation-controller-manager-arm64:v1.3.1-beta.1
 # eq
 docker pull gcr.io/google-containers/federation-controller-manager-arm64:v1.3.1-beta.1 
 
@@ -46,14 +37,14 @@ docker pull gcr.io/google-containers/federation-controller-manager-arm64:v1.3.1-
 docker pull k8s.gcr.io/federation-controller-manager-arm64:v1.3.1-beta.1
 ```
 
-~~ReTag anjia0532 images to gcr.io~~
+ReTag lauleon images to gcr.io 
 -------
 
 ```bash
 # replace gcr.io/google-containers/federation-controller-manager-arm64:v1.3.1-beta.1 to real image
 # this will convert gcr.io/google-containers/federation-controller-manager-arm64:v1.3.1-beta.1 
-# to anjia0532/google-containers.federation-controller-manager-arm64:v1.3.1-beta.1 and pull it
-# k8s.gcr.io/{image}/{tag} <==> gcr.io/google-containers/{image}/{tag} <==> anjia0532/google-containers.{image}/{tag}
+# to lauleon/google-containers.federation-controller-manager-arm64:v1.3.1-beta.1 and pull it
+# k8s.gcr.io/{image}/{tag} <==> gcr.io/google-containers/{image}/{tag} <==> lauleon/google-containers.{image}/{tag}
 
 images=$(cat img.txt)
 #or 
@@ -65,16 +56,16 @@ images=$(cat img.txt)
 #)
 
 eval $(echo ${images}|
-        sed 's/k8s\.gcr\.io/anjia0532\/google-containers/g;s/gcr\.io/anjia0532/g;s/\//\./g;s/ /\n/g;s/anjia0532\./anjia0532\//g' |
+        sed 's/k8s\.gcr\.io/lauleon\/google-containers/g;s/gcr\.io/lauleon/g;s/\//\./g;s/ /\n/g;s/lauleon\./lauleon\//g' |
         uniq |
         awk '{print "docker pull "$1";"}'
        )
 
-# this code will retag all of anjia0532's image from local  e.g. anjia0532/google-containers.federation-controller-manager-arm64:v1.3.1-beta.1 
+# this code will retag all of lauleon's image from local  e.g. lauleon/google-containers.federation-controller-manager-arm64:v1.3.1-beta.1 
 # to gcr.io/google-containers/federation-controller-manager-arm64:v1.3.1-beta.1
-# k8s.gcr.io/{image}/{tag} <==> gcr.io/google-containers/{image}/{tag} <==> anjia0532/google-containers.{image}/{tag}
+# k8s.gcr.io/{image}/{tag} <==> gcr.io/google-containers/{image}/{tag} <==> lauleon/google-containers.{image}/{tag}
 
-for img in $(docker images --format "{{.Repository}}:{{.Tag}}"| grep "anjia0532"); do
+for img in $(docker images --format "{{.Repository}}:{{.Tag}}"| grep "lauleon"); do
   n=$(echo ${img}| awk -F'[/.:]' '{printf "gcr.io/%s",$2}')
   image=$(echo ${img}| awk -F'[/.:]' '{printf "/%s",$3}')
   tag=$(echo ${img}| awk -F'[:]' '{printf ":%s",$2}')
@@ -86,8 +77,11 @@ done
 [Changelog](./CHANGES.md)
 -------
 
-~~Mirror 14 namespaces image from gcr.io~~
+Mirror 15 namespaces image from gcr.io
 -----
+
+
+[gcr.io/tekton-releases/*](./tekton-releases/README.md)
 
 
 [gcr.io/runconduit/*](./runconduit/README.md)
