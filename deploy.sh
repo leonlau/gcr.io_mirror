@@ -224,7 +224,8 @@ function commit()
 }
 
 mirror &
-
+env 
+sec=1
 while true;
 do
   duration=$SECONDS
