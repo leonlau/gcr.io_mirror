@@ -66,8 +66,8 @@ docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
 
-imgsrc='gcr.io/kaniko-project/executor:v0.21.0'
-imgdsc='lauleon/kaniko-project-executor:v0.21.0'
+imgsrc='gcr.io/kaniko-project/executor:v0.22.0'
+imgdsc='lauleon/kaniko-project-executor:v0.22.0'
 docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
