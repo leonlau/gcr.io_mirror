@@ -60,8 +60,14 @@ docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
 
 
-imgsrc='gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard'
-imgdsc='lauleon/tektoncd-dashboard'
+#imgsrc='gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard'
+#imgdsc='lauleon/tektoncd-dashboard'
+#docker  pull ${imgsrc}
+#docker tag  ${imgsrc} ${imgdsc}
+#docker push ${imgdsc}
+
+imgsrc="gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard@sha256:9ba9c755e868942143868dbbc7a0d9ab29241014833dd0a7ac6156d66e45fe9b"
+imgdsc='lauleon/tektoncd-dashboard:v0.7.0'
 docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
