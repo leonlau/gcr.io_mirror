@@ -78,3 +78,10 @@ docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
 
+imgsrc='gcr.io/kubebuilder/kube-rbac-proxy:v0.4.1'
+imgdsc='lauleon/kube-rbac-proxy:v0.4.1'
+docker  pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
+  
+
