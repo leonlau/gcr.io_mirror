@@ -20,3 +20,10 @@ docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
   
 
+
+
+imgsrc='gcr.io/jenkinsxio/nginx-ingress-controller:0.30.0'
+imgdsc='lauleon/jenkinsxio-nginx-ingress-controller:0.30.0'
+docker  pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
