@@ -20,10 +20,6 @@ docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
 
-
-
-
-
 imgsrc="gcr.io/linkerd-io/grafana:stable-2.8.1"
 imgdsc='lauleon/linkerd-io-grafana:stable-2.8.1'
 docker  pull ${imgsrc}
@@ -35,3 +31,31 @@ imgdsc='lauleon/linkerd-io-web:stable-2.8.1'
 docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
+
+
+
+imgsrc="gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.16.3"
+imgdsc='lauleon/tektoncd-pipeline-imagedigestexporter:v0.16.3'
+docker  pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
+
+
+
+
+imgsrc="gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.16.3"
+imgdsc='lauleon/tektoncd-pipeline-controller:v0.16.3'
+docker  pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
+
+
+imgsrc="gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.16.3"
+imgdsc='lauleon/tektoncd-pipeline-webhook:v0.16.3'
+docker pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
+
+
+
+
