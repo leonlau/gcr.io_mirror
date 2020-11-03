@@ -56,6 +56,14 @@ docker pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
 
+imgsrc="gcr.io/spark-operator/spark:v3.0.0"
+imgdsc='lauleon/spark-operator-spark:v3.0.0'
+docker pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
+
+
+
 
 
 
