@@ -19,6 +19,12 @@ docker  pull ${imgsrc}
 docker tag  ${imgsrc} ${imgdsc}
 docker push ${imgdsc}
 
+imgsrc="gcr.io/distroless/base:debug"
+imgdsc='lauleon/tektoncd-distroless-base:v0.18.1'
+docker  pull ${imgsrc}
+docker tag  ${imgsrc} ${imgdsc}
+docker push ${imgdsc}
+
 
 
 
